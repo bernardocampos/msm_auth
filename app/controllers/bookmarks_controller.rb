@@ -1,6 +1,7 @@
 class BookmarksController < ApplicationController
   def index
-    @bookmarks = Bookmark.all
+    # @bookmarks = Bookmark.all
+    @bookmarks = current_user.bookmarks
 
     render("bookmarks/index.html.erb")
   end

@@ -9,15 +9,13 @@
   <div class="col-md-12">
     <table class="table table-striped table-hover">
       <tr>
-        <th>User</th>
         <th>Movie</th>
         <th>Actions</th>
       </tr>
 
       <% @bookmarks.each do |bookmark| %>
       <tr>
-        <td><%= User.find(bookmark.user_id).email %></td>
-        <td><%= Movie.find(bookmark.movie_id).title %></td>
+        <td><%= bookmark.movie.title %></td>
         <td>
           <a href="/bookmarks/<%= bookmark.id %>" class="btn btn-primary">Show</a>
           <a href="/bookmarks/<%= bookmark.id %>/edit" class="btn btn-warning">Edit</a>
