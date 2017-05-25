@@ -27,6 +27,25 @@
           </a>
         </td>
         <td>
+
+          <form action="/create_bookmark" method="post">
+            <!-- Hidden input for authenticity token to protect from forgery -->
+            <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>">
+
+            <!-- Label and input for user_id -->
+
+            <input type="hidden" id="user_id" name="user_id" placeholder="User" class="form-control" value="<%= current_user.id %>">
+
+
+            <!-- Label and input for movie_id -->
+            <input type="hidden" id="movie_id" name="movie_id" placeholder="Movie" class="form-control" value="<%= movie.id %>">
+
+            <button class="btn btn-success">
+              Bookmark
+            </button>
+
+          </form>
+
           <a href="/movies/<%= movie.id %>" class="btn btn-primary">Show</a>
           <a href="/movies/<%= movie.id %>/edit" class="btn btn-warning">Edit</a>
           <a href="/delete_movie/<%= movie.id %>" class="btn btn-danger" rel="nofollow">Delete</a>
